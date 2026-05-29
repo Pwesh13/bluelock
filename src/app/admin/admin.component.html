@@ -1,0 +1,43 @@
+<div class="page">
+  <div class="header">
+    <h1>⚙️ Dashboard Admin</h1>
+    <p>Gestion des joueurs Blue Lock</p>
+    <button class="btn-ajouter" routerLink="/admin/ajouter">➕ Ajouter un joueur</button>
+  </div>
+
+  <div class="cards-grid">
+    @for (j of joueurs; track j.id) {
+      <div class="card-fifa">
+        <div class="card-top">
+          <div class="card-numero">{{ j.numero }}</div>
+          <div class="card-poste">{{ getNomPoste(j.id_poste) }}</div>
+          <div class="card-nat">{{ j.nationality }}</div>
+        </div>
+
+        <div class="card-avatar">
+          <div class="avatar-placeholder">{{ j.prenom[0] }}{{ j.nom[0] }}</div>
+        </div>
+
+        <div class="card-nom">
+          <span class="prenom">{{ j.prenom }}</span>
+          <span class="nom">{{ j.nom }}</span>
+        </div>
+
+        <div class="card-actions">
+          @if (confirmation === j.id) {
+            <div class="confirmation">
+              <p>Confirmer ?</p>
+              <div class="conf-buttons">
+                <button class="btn-oui" (click)="supprimerJoueur(j)">Oui</button>
+                <button class="btn-non" (click)="annulerSuppression()">Non</button>
+              </div>
+            </div>
+          } @else {
+            <button class="btn-modifier" [routerLink]="['/admin/joueur', j.id]">✏️ Modifier</button>
+            <button class="btn-supprimer" (click)="confirmerSuppression(j.id)">🗑️ Supprimer</button>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

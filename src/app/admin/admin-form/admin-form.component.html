@@ -1,0 +1,134 @@
+<div class="page">
+  <div class="header">
+    <a routerLink="/admin" class="back">← Retour au dashboard</a>
+    <h1>{{ estModification ? '✏️ Modifier le joueur' : '➕ Ajouter un joueur' }}</h1>
+  </div>
+
+  <div class="form-card">
+    @if (erreur) {
+      <div class="erreur">{{ erreur }}</div>
+    }
+    @if (succes) {
+      <div class="succes">{{ succes }}</div>
+    }
+
+    <!-- Infos générales -->
+    <div class="form-section">
+      <h2>Informations générales</h2>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Prénom</label>
+          <input type="text" [(ngModel)]="joueur.prenom" placeholder="Yoichi" />
+        </div>
+        <div class="form-group">
+          <label>Nom</label>
+          <input type="text" [(ngModel)]="joueur.nom" placeholder="Isagi" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nationalité</label>
+          <input type="text" [(ngModel)]="joueur.nationality" placeholder="Japon" />
+        </div>
+        <div class="form-group">
+          <label>Numéro</label>
+          <input type="number" [(ngModel)]="joueur.numero" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Taille (cm)</label>
+          <input type="number" [(ngModel)]="joueur.taille" />
+        </div>
+        <div class="form-group">
+          <label>Poids (kg)</label>
+          <input type="number" [(ngModel)]="joueur.poids" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Date de naissance</label>
+          <input type="date" [(ngModel)]="joueur.datenaissance" />
+        </div>
+        <div class="form-group">
+          <label>Poste</label>
+          <select [(ngModel)]="joueur.id_poste">
+            <option [value]="0">Choisir un poste</option>
+            @for (p of postes; track p.id) {
+              <option [value]="p.id">{{ p.nomPoste }}</option>
+            }
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compte joueur -->
+    <div class="form-section">
+      <h2>🔐 Compte du joueur</h2>
+
+      @if (estModification && utilisateurLie) {
+        <div class="compte-lie">
+          <p>✅ Compte lié : <strong>{{ utilisateurLie.email }}</strong></p>
+        </div>
+      } @else {
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" [(ngModel)]="compteEmail" placeholder="joueur@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Mot de passe temporaire</label>
+            <input type="password" [(ngModel)]="compteMdp" placeholder="Min 8 car., 1 maj., 1 chiffre" />
+          </div>
+        </div>
+        @if (estModification) {
+          <button class="btn-compte" (click)="creerCompteEtLier()" [disabled]="chargement">
+            {{ chargement ? 'En cours...' : '🔗 Créer et lier le compte' }}
+          </button>
+        }
+      }
+    </div>
+
+    <!-- Stats de match — seulement en modification -->
+    @if (estModification) {
+      <div class="form-section">
+        <h2>📊 Statistiques de match</h2>
+        <div class="stats-grid">
+          @for (s of statistiques; track s.id) {
+            <div class="stat-item">
+              <label>{{ s.nomStat }}</label>
+              <input
+                type="number"
+                [value]="getValeurStat(s.id)"
+                (change)="setValeurStat(s.id, +$any($event.target).value)"
+                min="0"
+              />
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2>⚡ Capacités internes</h2>
+        <div class="stats-grid">
+          @for (si of statinternes; track si.id) {
+            <div class="stat-item">
+              <label>{{ si.nomStatInt }} (max {{ si.valeurMax }})</label>
+              <input
+                type="number"
+                [value]="getValeurStatInterne(si.id)"
+                (change)="setValeurStatInterne(si.id, +$any($event.target).value)"
+                min="0"
+                [max]="si.valeurMax"
+              />
+            </div>
+          }
+        </div>
+      </div>
+    }
+
+    <button class="btn-submit" (click)="onSubmit()" [disabled]="chargement">
+      {{ chargement ? 'En cours...' : estModification ? 'Modifier le joueur' : 'Ajouter le joueur' }}
+    </button>
+  </div>
+</div>

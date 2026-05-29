@@ -1,0 +1,30 @@
+.joueur-row {
+  border-bottom: 1px solid #ffffff10;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.joueur-row:hover {
+  background: #00aaff10;
+}
+
+.joueur-row td {
+  padding: 1rem;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+.nom {
+  font-weight: 600;
+  color: white !important;
+}
+
+.badge {
+  background: #00aaff22;
+  color: #00aaff;
+  border: 1px solid #00aaff44;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}

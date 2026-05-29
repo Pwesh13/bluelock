@@ -1,0 +1,52 @@
+<div class="page">
+  <div class="back">
+    <a routerLink="/">← Retour</a>
+  </div>
+
+  @if (joueur) {
+    <div class="card-joueur">
+      <div class="card-header">
+        <div class="numero">#{{ joueur.numero }}</div>
+        <div class="info-principale">
+          <h1>{{ joueur.prenom }} {{ joueur.nom }}</h1>
+          <span class="badge">{{ nomPoste }}</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Nationalité</span>
+            <span class="valeur">{{ joueur.nationality }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Taille</span>
+            <span class="valeur">{{ joueur.taille }} cm</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Poids</span>
+            <span class="valeur">{{ joueur.poids }} kg</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Date de naissance</span>
+            <span class="valeur">{{ joueur.datenaissance | date:'dd/MM/yyyy' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sections">
+      <div class="section">
+        <h2>📊 Statistiques du joueur</h2>
+        <div class="stats-grid">
+          @for (s of statistiques; track s.id) {
+            <div class="stat-item">
+              <span class="stat-nom">{{ s.nomStat }}</span>
+              <span class="stat-valeur">{{ getValeurStat(s.id) }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>

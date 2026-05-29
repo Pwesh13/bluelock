@@ -1,0 +1,66 @@
+<div class="page">
+  <div class="header">
+  <h1>⚽ Blue Lock</h1>
+  <p>Sélection des joueurs</p>
+</div>
+
+  <div class="filtres">
+    <select [(ngModel)]="filtrePoste" (change)="appliquerFiltres()">
+      <option [value]="0">Tous les postes</option>
+      @for (p of postes; track p.id) {
+        <option [value]="p.id">{{ p.nomPoste }}</option>
+      }
+    </select>
+
+    <select [(ngModel)]="filtreNationalite" (change)="appliquerFiltres()">
+      <option value="">Toutes les nationalités</option>
+      @for (n of nationalites; track n) {
+        <option [value]="n">{{ n }}</option>
+      }
+    </select>
+
+    <button (click)="resetFiltres()">Réinitialiser</button>
+  </div>
+
+  <div class="tableau-container">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nom</th>
+          <th>Poste</th>
+          <th>Nat.</th>
+          <th>Matchs</th>
+          <th>Buts</th>
+          <th>Passes</th>
+          <th>Tirs</th>
+          <th>🟨</th>
+          <th>🟥</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (joueursFiltres.length === 0) {
+          <tr>
+            <td colspan="11">Aucun joueur trouvé</td>
+          </tr>
+        }
+        @for (j of joueursFiltres; track j.id) {
+          <tr class="joueur-row" [routerLink]="['/joueurs', j.id]">
+            <td>{{ j.numero }}</td>
+            <td class="nom">{{ j.prenom }} {{ j.nom }}</td>
+            <td><span class="badge">{{ getNomPoste(j.id_poste) }}</span></td>
+            <td>{{ j.nationality }}</td>
+            <td>{{ getStat(j.id, 3) }}</td>
+            <td class="highlight">{{ getStat(j.id, 1) }}</td>
+            <td class="highlight">{{ getStat(j.id, 2) }}</td>
+            <td>{{ getStat(j.id, 5) }}</td>
+            <td class="jaune">{{ getStat(j.id, 11) }}</td>
+            <td class="rouge">{{ getStat(j.id, 12) }}</td>
+            <td class="note">{{ getStat(j.id, 18) }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

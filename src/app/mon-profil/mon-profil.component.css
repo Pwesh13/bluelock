@@ -1,0 +1,181 @@
+.page {
+  padding: 1.5rem 2rem;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.no-joueur {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.5);
+}
+
+.card-joueur {
+  max-width: 960px;
+  margin: 0 auto 1.5rem auto;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card-header {
+  background: rgba(255,255,255,0.04);
+  padding: 1.8rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.numero {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: rgba(255,255,255,0.08);
+  line-height: 1;
+}
+
+.info-principale h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 0.5rem 0;
+}
+
+.badge {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.25rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.card-body { padding: 1.5rem 2rem; }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.label {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.valeur {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+}
+
+.sections {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.section {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+}
+
+.section h2 {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.stat-nom {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.stat-valeur {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: white;
+}
+
+.barres {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.barre-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.barre-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.barre-bg {
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.barre-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7eb8ff, #a78bfa);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}

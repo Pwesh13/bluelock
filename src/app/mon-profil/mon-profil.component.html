@@ -1,0 +1,64 @@
+<div class="page">
+  <div class="header">
+    <h1>👤 Mon Profil</h1>
+  </div>
+
+  @if (pasDeJoueur) {
+    <div class="no-joueur">
+      <p>Ton compte n'est pas encore lié à un joueur Blue Lock.</p>
+      <p>Contacte un administrateur pour lier ton compte.</p>
+    </div>
+  }
+
+  @if (joueur) {
+    <div class="card-joueur">
+      <div class="card-header">
+        <div class="numero">#{{ joueur.numero }}</div>
+        <div class="info-principale">
+          <h2>{{ joueur.prenom }} {{ joueur.nom }}</h2>
+          <span class="badge">{{ nomPoste }}</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Nationalité</span>
+            <span class="valeur">{{ joueur.nationality }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Taille</span>
+            <span class="valeur">{{ joueur.taille }} cm</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Poids</span>
+            <span class="valeur">{{ joueur.poids }} kg</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Date de naissance</span>
+            <span class="valeur">{{ joueur.datenaissance | date:'dd/MM/yyyy' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sections">
+      <div class="section">
+        <h2>⚡ Capacités</h2>
+        <div class="barres">
+          @for (si of statinternes; track si.id) {
+            <div class="barre-item">
+              <div class="barre-label">
+                <span>{{ si.nomStatInt }}</span>
+                <span>{{ getValeurStatInterne(si.id) }}/{{ si.valeurMax }}</span>
+              </div>
+              <div class="barre-bg">
+                <div class="barre-fill" [style.width.%]="getPourcentage(getValeurStatInterne(si.id), si.valeurMax)"></div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>

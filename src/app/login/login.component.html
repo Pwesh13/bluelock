@@ -1,0 +1,26 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <h1>Connexion</h1>
+    <p class="subtitle">Accède à ton espace Blue Lock</p>
+
+    @if (erreur) {
+      <div class="erreur">{{ erreur }}</div>
+    }
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="form.email" placeholder="ton@email.com" />
+    </div>
+
+    <div class="form-group">
+      <label>Mot de passe</label>
+      <input type="password" [(ngModel)]="form.password" placeholder="••••••••" />
+    </div>
+
+    <button class="btn-submit" (click)="onSubmit()" [disabled]="chargement">
+      {{ chargement ? 'Connexion...' : 'Se connecter' }}
+    </button>
+
+    
+  </div>
+</div>

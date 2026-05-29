@@ -1,0 +1,133 @@
+.page {
+  min-height: 100vh;
+  padding: 1.5rem 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: white;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.header p {
+  color: rgba(255,255,255,0.35);
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  letter-spacing: 2px;
+}
+
+.filtres {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  justify-content: flex-start;
+}
+
+.filtres select, .filtres button {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.filtres select:focus {
+  outline: none;
+  border-color: rgba(255,255,255,0.3);
+}
+
+.filtres button {
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.filtres button:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.tableau-container { width: 100%; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead tr {
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+thead th {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.joueur-row {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.joueur-row:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.joueur-row td {
+  padding: 0.8rem 1rem;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+}
+
+.nom {
+  font-weight: 600;
+  color: white !important;
+}
+
+.badge {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.highlight {
+  color: white;
+  font-weight: 700;
+}
+
+.jaune {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.rouge {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.note {
+  color: #7eb8ff;
+  font-weight: 700;
+}
+
+.stats-link { display: none; }

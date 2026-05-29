@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <a routerLink="/" class="logo">⚽ BLUE LOCK</a>
+  <div class="nav-links">
+    <a routerLink="/stats" class="nav-link">📊 Classements</a>
+
+    @if (authService.isLoggedIn()) {
+      @if (authService.isAdmin()) {
+        <a routerLink="/admin" class="nav-link">⚙️ Admin</a>
+      }
+      <a routerLink="/mon-profil" class="nav-link">👤 Mon profil</a>
+      <span class="nav-user">{{ authService.getCurrentUser()?.username }}</span>
+      <button class="btn-logout" (click)="authService.logout()">Déconnexion</button>
+    } @else {
+      <a routerLink="/login" class="nav-link btn-login">🔐 Connexion</a>
+    }
+  </div>
+</nav>

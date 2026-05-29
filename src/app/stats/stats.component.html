@@ -1,0 +1,92 @@
+<div class="page">
+  <div class="header">
+    <a routerLink="/" class="back">← Retour</a>
+    <h1>📊 Statistiques globales</h1>
+    <p>Classements des joueurs</p>
+  </div>
+  
+
+  <div class="grille">
+
+    <div class="carte">
+      <h2>🥅 Meilleurs buteurs</h2>
+      @for (item of getTop5(1); track item.joueur.id) {
+        <div class="ligne" [routerLink]="['/joueurs', item.joueur.id]">
+          <span class="nom">{{ item.joueur.prenom }} {{ item.joueur.nom }}</span>
+          <span class="valeur">{{ item.valeur }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="carte">
+      <h2>🎯 Meilleurs passeurs</h2>
+      @for (item of getTop5(2); track item.joueur.id) {
+        <div class="ligne" [routerLink]="['/joueurs', item.joueur.id]">
+          <span class="nom">{{ item.joueur.prenom }} {{ item.joueur.nom }}</span>
+          <span class="valeur">{{ item.valeur }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="carte">
+      <h2>⭐ Meilleures notes</h2>
+      @for (item of getTop5(18); track item.joueur.id) {
+        <div class="ligne" [routerLink]="['/joueurs', item.joueur.id]">
+          <span class="nom">{{ item.joueur.prenom }} {{ item.joueur.nom }}</span>
+          <span class="valeur note">{{ item.valeur }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="carte">
+      <h2>🏃 Plus de matchs joués</h2>
+      @for (item of getTop5(3); track item.joueur.id) {
+        <div class="ligne" [routerLink]="['/joueurs', item.joueur.id]">
+          <span class="nom">{{ item.joueur.prenom }} {{ item.joueur.nom }}</span>
+          <span class="valeur">{{ item.valeur }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="carte">
+      <h2>🎪 Meilleurs dribbleurs</h2>
+      @for (item of getTop5(6); track item.joueur.id) {
+        <div class="ligne" [routerLink]="['/joueurs', item.joueur.id]">
+          <span class="nom">{{ item.joueur.prenom }} {{ item.joueur.nom }}</span>
+          <span class="valeur">{{ item.valeur }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="carte">
+      <h2>🛡️ Meilleurs défenseurs</h2>
+      @for (item of getTop5Combine(8, 9); track item.joueur.id) {
+        <div class="ligne" [routerLink]="['/joueurs', item.joueur.id]">
+          <span class="nom">{{ item.joueur.prenom }} {{ item.joueur.nom }}</span>
+          <span class="valeur">{{ item.valeur }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="carte">
+      <h2>🟨 Plus de cartons jaunes</h2>
+      @for (item of getTop5(11); track item.joueur.id) {
+        <div class="ligne" [routerLink]="['/joueurs', item.joueur.id]">
+          <span class="nom">{{ item.joueur.prenom }} {{ item.joueur.nom }}</span>
+          <span class="valeur jaune">{{ item.valeur }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="carte">
+      <h2>🔥 Contributeurs offensifs</h2>
+      @for (item of getTop5Combine(1, 2); track item.joueur.id) {
+        <div class="ligne" [routerLink]="['/joueurs', item.joueur.id]">
+          <span class="nom">{{ item.joueur.prenom }} {{ item.joueur.nom }}</span>
+          <span class="valeur highlight">{{ item.valeur }}</span>
+        </div>
+      }
+    </div>
+
+  </div>
+</div>
