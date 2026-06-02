@@ -1,0 +1,9 @@
+Login et Mdp pour le site
+
+Admin -
+login : manager@gmail.com
+Mdp : Admin1234!
+
+Utilisateur(joueur) -
+login : scout.berkly@gmail.com
+Mdp : Scout1234!
